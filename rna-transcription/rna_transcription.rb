@@ -2,8 +2,10 @@ module Complement
   extend self
 
   def of_dna(dna_str)
-    dna_str.chars.each.reduce("") do | str, char |
-      str += from_char(char)
+    begin
+      dna_str.chars.map(&method(:from_char)).join
+    rescue KeyError
+      ""
     end
   end
 
