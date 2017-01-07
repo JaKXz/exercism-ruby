@@ -10,7 +10,7 @@ module Hamming
   private
 
   def indexed_strand(dna_strand)
-    dna_strand.each_char.with_index.map { |c, i| [c, i] }
+    dna_strand.each_char.with_index.to_a
   end
 end
 
