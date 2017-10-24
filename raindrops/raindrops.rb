@@ -18,8 +18,8 @@ module Raindrops
 
   def factors_tuples
     [
-      [3, 'Pling'], 
-      [5, 'Plang'], 
+      [3, 'Pling'],
+      [5, 'Plang'],
       [7, 'Plong']
     ]
   end
