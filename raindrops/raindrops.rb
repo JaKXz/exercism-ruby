@@ -1,6 +1,7 @@
 module Raindrops
   extend self
 
+  # @return String
   def convert(num)
     factors_tuples.inject(num.to_s) do |result, (factor, response)|
       if (num % factor).zero?
