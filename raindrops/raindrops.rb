@@ -3,7 +3,7 @@ module Raindrops
 
   def convert(num)
     factors_tuples.inject(num.to_s) do |result, (factor, response)|
-      if num % factor == 0
+      if (num % factor).zero?
         if result == num.to_s
           result = response
         else
