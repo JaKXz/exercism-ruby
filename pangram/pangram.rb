@@ -2,7 +2,7 @@ module Pangram
   extend self
 
   def pangram?(phrase)
-    (phrase.downcase.split('') & alphabet).length == alphabet.length
+    (phrase.downcase.chars & alphabet).length == alphabet.length
   end
 
   private
