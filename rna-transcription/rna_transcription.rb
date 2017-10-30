@@ -2,21 +2,19 @@ module Complement
   extend self
 
   def of_dna(dna_str)
-    begin
-      dna_str.chars.map(&method(:from_char)).join
-    rescue KeyError
-      ""
-    end
+    dna_str.chars.map(&method(:transcription)).join
+  rescue
+    ''
   end
 
   private
 
-  def from_char(dna_char)
+  def transcription(dna_char)
     {
-      "G" => "C",
-      "C" => "G",
-      "T" => "A",
-      "A" => "U"
+      'G' => 'C',
+      'C' => 'G',
+      'T' => 'A',
+      'A' => 'U'
     }.fetch(dna_char)
   end
 end
