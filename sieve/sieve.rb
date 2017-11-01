@@ -1,9 +1,9 @@
 class Sieve
+  attr_reader :limit
+
   def initialize(limit)
     @limit = limit
   end
-
-  attr_reader :limit
 
   def primes
     (2..limit).to_a.select(&method(:prime?))
