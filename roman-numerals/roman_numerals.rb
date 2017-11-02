@@ -1,10 +1,10 @@
-class Integer
+module RomanNumerals
   def to_roman
     return roman_numeral unless roman_numeral.nil?
 
     factor = quotient_factor
 
-    if powers_of_10.include?(factor)
+    if factor_of_10?(factor)
       factor.to_roman + (self - factor).to_roman
     else
       remainder = self % factor
@@ -15,20 +15,18 @@ class Integer
   private
 
   def roman_numeral
-    RomanNumerals::MAPPINGS[self]
+    NUMERIC_TO_ROMAN[self]
   end
 
   def quotient_factor
-    RomanNumerals::MAPPINGS.keys.select { |val| val < self }.max
+    NUMERIC_TO_ROMAN.keys.select { |val| val < self }.max
   end
 
-  def powers_of_10
-    (0..5).map { |x| 10**x }.lazy
+  def factor_of_10?(n)
+    (0..3).map { |x| 10**x }.include?(n)
   end
-end
 
-module RomanNumerals
-  MAPPINGS = {
+  NUMERIC_TO_ROMAN = {
     1 => 'I',
     4 => 'IV',
     5 => 'V',
@@ -43,6 +41,10 @@ module RomanNumerals
     900 => 'CM',
     1000 => 'M'
   }.freeze
+end
+
+class Integer
+  include RomanNumerals
 end
 
 module BookKeeping

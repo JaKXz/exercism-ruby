@@ -1,7 +1,7 @@
 module Gigasecond
   extend self
 
-  GIGASECOND = 10 ** 9
+  GIGASECOND = 10**9
 
   def from(time)
     time + GIGASECOND
